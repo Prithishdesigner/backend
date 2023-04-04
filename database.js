@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
-var mongoURL='mongodb://127.0.0.1:27017/EMI'
+var mongoURL='mongodb+srv://Hariprakash:Hariprakash20@cluster0.3wyvyo5.mongodb.net/prithishs'
+// var mongoURL='mongodb://127.0.0.1:27017/EMI'
 
 mongoose.connect(mongoURL,{useUnifiedTopology:true , useNewUrlParser:true});
 
