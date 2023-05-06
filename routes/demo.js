@@ -3,7 +3,16 @@ const router = express.Router();
 
 
 
+const axios = require('axios');
+
+
+
 const formData = require("../models/forms");
+const slackMessage = require("../utils/slackMessage");
+
+
+
+
 
 
 
@@ -46,10 +55,34 @@ router.post("/details", async function (req, res) {
 
       const newdata = new formData(req.body);
       await newdata.save();
+      // await slack()
+      await s2axios(req.body)
       res.json({ message: "Data added successfully" });
     } catch (error) {
       res.json({ message: "Failed" });
     }
+
+
+
+
   });
+
+
+  const s2axios = async (userDetails) => {
+    const config = {
+      method: 'post',
+      url: 'https://finmsme-2.dwtech.in/send-message',
+      data: userDetails
+    };
+    try {
+      const response = await axios(config);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  
 
   module.exports = router;
