@@ -13,6 +13,6 @@ app.use(FormRoute);
 app.get("/", (req, res) => res.send(`Server Running successfully.....!`));
 
 
-app.listen(port=3020, () => {
+app.listen(port=3022, () => {
     console.log(`Server running on port ${port}`)
 });
